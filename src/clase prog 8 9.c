@@ -34,12 +34,15 @@ int main(void)
 	int ret;
 	int operando;
 	int flag;
+	int flagTwo;
+	flagTwo=0;
 	flag=0;
+	char letra;
 
 	do
 	{
-		ret=menu();
 
+		ret=menu();
 		switch(ret)
 		{
 			case 1:
@@ -50,41 +53,88 @@ int main(void)
 					flag=1;
 					printf("el operando es %d",operando);
 				}
+
+				printf("desea salir o continuar? ingrese s/n");
+				fflush(stdin);
+				scanf("%c",&letra);
+				if(letra == 'n')
+				{
+					printf("usted ha salido del programa\n");
+				}
 			break;
 
 			case 2:
-					printf("ha ingresado a procesar\n");
+				 printf("ha ingresado a procesar\n");
 				 if(flag==0)
 				 {
-					 printf("Debe Iniciar antes de Procesar\n");
+					 printf("error,Debe Iniciar antes de Procesar\n");
 				 }
 				 else
 				 {
+					 printf("procesado\n");
+					 flagTwo=1;
+				 }
 
+				 printf("desea salir o continuar? ingrese s/n");
+				 fflush(stdin);
+				 scanf("%c",&letra);
+				 if(letra == 'n')
+				 {
+				 	printf("usted ha salido del programa\n");
 				 }
 			break;
 
 			case 3:
 					printf("ha ingresado a finalizar\n");
+
 					if(flag==0)
 					{
-						printf("Debe Iniciar antes de Finalizar\n");
+						printf("error,Debe Iniciar antes de Finalizar\n");
+					}
+						if(flagTwo==0)
+						{
+							printf("\nNo se puede finalizar sin antes procesar\n.");
+						}
+						else
+						{
+							printf("finalizado\n");
+						}
+
+
+					printf("desea salir o continuar? ingrese s/n");
+					fflush(stdin);
+					scanf("%c",&letra);
+					if(letra == 'n')
+					{
+						printf("usted ha salido del programa\n");
 					}
 			break;
 
 			case 4:
-
-
+						printf("esta seguro que desea salir? ingrese s/n");
+						fflush(stdin);
+						scanf("%c",&letra);
+						if(letra == 'n')
+						{
+							printf("usted ha salido del programa\n");
+						}
 			break;
 
 			default:
-				  printf("error coloque numero de 1 a 4");
+				  printf("error no colocó numero de 1 a 3\n");
+
+				  printf("desea salir o continuar? ingrese s/n");
+				  fflush(stdin);
+				  scanf("%c",&letra);
+				  		if(letra == 'n')
+				  		{
+				  			printf("usted ha salido del programa\n");
+				  		}
 			break;
 		}
 
-	}
-	while(ret!=4);
+	}while(letra != 'n');
 
-	return EXIT_SUCCESS;
+	return 0;
 }
 
